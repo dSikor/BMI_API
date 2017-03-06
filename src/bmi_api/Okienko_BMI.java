@@ -5,7 +5,7 @@ import java.util.Calendar;
 import javax.swing.JOptionPane;
 
 public class Okienko_BMI extends javax.swing.JFrame {
-//dopisanie komentarza 
+ int a =5;
     BMI WspolczynnikBMI = new BMI(0, 0, 0);
 
     Calendar calendar = Calendar.getInstance();
