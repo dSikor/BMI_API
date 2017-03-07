@@ -5,7 +5,7 @@ public class BMI {
     private double waga;
     private double wzrost;
     private double bmi;
-
+//dadas
     public BMI() {
 
     }
