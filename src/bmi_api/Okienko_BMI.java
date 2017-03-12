@@ -237,9 +237,8 @@ public class Okienko_BMI extends javax.swing.JFrame {
     private void OtworzPlikActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OtworzPlikActionPerformed
        
         Runtime UruchamianyProces = Runtime.getRuntime();
-  
+  //////
         try {
-    
              Process NotepadProcces = UruchamianyProces.exec("cmd /c C:\\Users\\Damian\\Documents\\NetBeansProjects\\BMI_API\"\\BMI.xlsx");
              
         } catch (IOException ex) {
