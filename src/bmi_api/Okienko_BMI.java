@@ -1,7 +1,11 @@
 package bmi_api;
 
+import java.io.File;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 public class Okienko_BMI extends javax.swing.JFrame {
@@ -17,9 +21,7 @@ public class Okienko_BMI extends javax.swing.JFrame {
     String dzienPomniaru;
 
     public Okienko_BMI() {
-
         initComponents();
-
     }
 
     @SuppressWarnings("unchecked")
@@ -38,6 +40,7 @@ public class Okienko_BMI extends javax.swing.JFrame {
         jButton_ObliczBMI = new javax.swing.JButton();
         jButton_ExportDoExela = new javax.swing.JButton();
         jButton_WyswietlZalecenia = new javax.swing.JButton();
+        OtworzPlik = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextArea_InterpretacjaWyniku = new javax.swing.JTextArea();
@@ -85,6 +88,13 @@ public class Okienko_BMI extends javax.swing.JFrame {
             }
         });
 
+        OtworzPlik.setText("Otwórz plik");
+        OtworzPlik.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                OtworzPlikActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel_ObliczanieBMILayout = new javax.swing.GroupLayout(jPanel_ObliczanieBMI);
         jPanel_ObliczanieBMI.setLayout(jPanel_ObliczanieBMILayout);
         jPanel_ObliczanieBMILayout.setHorizontalGroup(
@@ -100,7 +110,11 @@ public class Okienko_BMI extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_ObliczanieBMILayout.createSequentialGroup()
                                 .addComponent(jTextField_WynikBMI, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(30, 30, 30)))
-                        .addComponent(jButton_WyswietlZalecenia))
+                        .addGroup(jPanel_ObliczanieBMILayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton_WyswietlZalecenia)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_ObliczanieBMILayout.createSequentialGroup()
+                                .addComponent(OtworzPlik)
+                                .addGap(19, 19, 19))))
                     .addGroup(jPanel_ObliczanieBMILayout.createSequentialGroup()
                         .addGap(34, 34, 34)
                         .addGroup(jPanel_ObliczanieBMILayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -136,7 +150,9 @@ public class Okienko_BMI extends javax.swing.JFrame {
                         .addComponent(jButton_ObliczBMI))
                     .addComponent(jButton_WyswietlZalecenia))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextField_WynikBMI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel_ObliczanieBMILayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField_WynikBMI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(OtworzPlik))
                 .addContainerGap(20, Short.MAX_VALUE))
         );
 
@@ -218,6 +234,20 @@ public class Okienko_BMI extends javax.swing.JFrame {
         jTextArea_InterpretacjaWyniku.setText(WspolczynnikBMI.DokonajInterpretacjiWyniku());
     }//GEN-LAST:event_jButton_WyswietlZaleceniaActionPerformed
 
+    private void OtworzPlikActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OtworzPlikActionPerformed
+       
+        Runtime UruchamianyProces = Runtime.getRuntime();
+  
+        try {
+    
+             Process NotepadProcces = UruchamianyProces.exec("cmd /c C:\\Users\\Damian\\Documents\\NetBeansProjects\\BMI_API\"\\BMI.xlsx");
+             
+        } catch (IOException ex) {
+            Logger.getLogger(Okienko_BMI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }//GEN-LAST:event_OtworzPlikActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -254,6 +284,7 @@ public class Okienko_BMI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton OtworzPlik;
     private javax.swing.JButton jButton_ExportDoExela;
     private javax.swing.JButton jButton_ObliczBMI;
     private javax.swing.JButton jButton_WyswietlZalecenia;
